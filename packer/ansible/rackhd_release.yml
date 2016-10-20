@@ -9,11 +9,10 @@
     - rabbitmq
     - mongodb
     - node
-    - rackhd-packages
     - isc-dhcp-server
     - monorail
     - snmptool
     - ipmitool
-    - images
     - integrationtest
     - postgresql
+    - rackhd-release

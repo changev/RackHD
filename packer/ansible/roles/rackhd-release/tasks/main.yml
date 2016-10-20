@@ -7,7 +7,7 @@
 - apt: pkg=python-pycurl state=present
   sudo: yes
 
-- apt_repository: repo="deb https://dl.bintray.com/rackhd/debian trusty main"
+- apt_repository: repo="deb https://dl.bintray.com/rackhd/debian trusty release"
                   state=present
   sudo: yes
 
@@ -19,6 +19,7 @@
     - on-taskgraph
     - on-tftp
     - on-syslog
+    - on-image
   sudo: yes
 
 - file: path="/etc/default/{{ item }}" state=touch
@@ -28,10 +29,6 @@
     - on-taskgraph
     - on-tftp
     - on-syslog
+    - on-image
   sudo: yes
 
-- name: set HTTP static directory for RackHD
-  set_fact: http_static_directory="/var/renasar/on-http/static/http"
-
-- name: set TFTP static directory for RackHD
-  set_fact: tftp_static_directory="/var/renasar/on-tftp/static/tftp"
